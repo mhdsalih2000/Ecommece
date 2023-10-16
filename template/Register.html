@@ -1,0 +1,100 @@
+
+{%extends 'base.html'%}
+{%block container%}
+{%load static%}
+
+<section class="form my-4 mx-5">
+
+    <div class="container">
+
+         <div class="#">
+            <!-- <div class="col-lg-5">
+
+                <img src="#" class="img-fluid" alt="">
+
+            </div> --> 
+
+            <div class="col-lg-7 px-5 pt-5 ">
+                <h1 class="font-weight-bold py-4 px-4 text-success">D Line 
+                </h1>
+                <h4 class="px-3 px-4">Sign into your account</h4>
+                <form action="" method="post" class="d-flex flex-column gap-4" >
+                    {% csrf_token %}
+                    
+
+
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" placeholder="Enter your First Name" name="first_name" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+
+
+
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="text" placeholder="Enter your Last Name" name="last_name" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="number" placeholder="Enter your Phone number" name="Mobile_Number" class="form-control ">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="email" placeholder="Enter your email-id" name="email" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input type="date" placeholder="" name="Date" class="form-control">
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="form-row ">
+                        <div class="col-lg-7">
+                            <input type="Password" placeholder="Enter your Password" name='password' class="form-control">
+                        </div>
+                    </div>
+                    <br>
+                    
+
+
+   
+                    {% if error_message %}
+                      <p class="error-message" style="color: red;">{{ error_message }}</p>
+                    {% endif %}
+                    <div class="form-row" >
+                        <div class="col-lg-7">
+                            <input type="Password" placeholder="Confirm your Password" name="password_confirmation" class="form-control">
+
+                        </div>
+                    </div>
+                    <br>
+
+                
+                    <div class="form-row">
+
+                        <div class="col-lg-7">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block mt-4 mb-4">Signup</button>   
+                           <!-- <a class="px-2" href="#">Forgot password</a> -->
+                           <p class="">Already have an account? <a href="">Login</a></p>
+                        </div>   
+                    </div>    
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock container%}
