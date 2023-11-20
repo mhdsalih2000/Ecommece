@@ -5,6 +5,28 @@ from .models import CustomUser
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login,logout
 from Ecom import views
+from .models import CustomUser
+
+def getthe_email(request):
+    user_emails =CustomUser.objects.values_list("email",flat=True)
+    for email in user_emails:
+        user_email= email
+    return (request,user_email)
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def register(request):
     if request.method == 'POST':

@@ -3,7 +3,6 @@ from django.views.generic import DetailView
 from .models import Catogory,Product,CartItem
 from django.views import View
 from account.models import CustomUser
-
 from django.shortcuts import get_object_or_404
 
 # Create your views here.
@@ -54,13 +53,17 @@ def Detail_view(request, pk):
     
 
 def Add_to_cart(request,pk):
-    product = Product.objects.get(pk=pk)
-    user = request.user
-    cart_item, created = CartItem.objects.get_or_create(user=user, product=product)
-    if not created:
-        cart_item.quantity += 1
-        cart_item.save()
-    return redirect('Ecom:cart_view')
+
+    if request.user.is_authenticated:
+        product = Product.objects.get(pk=pk)
+        user = request.user
+        cart_item, created = CartItem.objects.get_or_create(user=user, product=product)
+        if not created:
+          cart_item.quantity += 1
+          cart_item.save()
+        return redirect('Ecom:cart_view')
+    return redirect('account:login')
+    
 
 
 

@@ -3,6 +3,8 @@ from . import views
 
 app_name ='Ecom'
 
+
+
 urlpatterns = [
     path('',views.home,name='home'),
     path('shop/',views.Shop,name='shop'),
